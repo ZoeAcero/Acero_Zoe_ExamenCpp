@@ -64,9 +64,14 @@ int main() {
         env.print();
 
         //buscar simbolo en la tabla
+        try {
         std::cout << "score = " << env.find("score") << '\n';
         std::cout << "name = " << env.find("name") << '\n';
         std::cout << "pi = " << env.find("pi") << '\n';
+
+        } catch (const std::exception& ex) {
+            std::cerr << "Error al buscar simbolo: " << ex.what() << '\n';
+        }
 
         //eliminar simbolo de la tabla
         env.remove("score");
