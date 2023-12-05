@@ -2,6 +2,7 @@
 #include <string>
 #include <any>
 #include <iostream>
+#include <variant>
 
 class Environment {
 public:
@@ -27,7 +28,7 @@ public:
     else {
         throw std::invalid_argument("Símbolo no encontrado: " + name);
     }
-}
+
 
 //verificar si el simbolo existe en el entorno
 bool exists(const std::string& name) const {
@@ -46,7 +47,9 @@ void print() const {
     }
 }
 
-
+private:
+    std::map<std::string, std::variant<int, double, std::string>> symbols;
+};
 
 
 
