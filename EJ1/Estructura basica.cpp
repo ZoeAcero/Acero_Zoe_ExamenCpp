@@ -10,7 +10,6 @@ public:
 
     // agregamos simbolo
     void addSymbol(const std::string& name, const std::any& value) {
-        int symbols;
         symbols[name] = value;
     }
 
@@ -45,6 +44,21 @@ bool hasSymbol(const std::string& name) const {
 private:
     std::map<std::string, std::any> symbols;
 };
+
+int main() {
+    Environment env;
+    env.addSymbol("x", 10);
+    env.addSymbol("y", 20);
+    env.addSymbol("z", 30);
+
+    env.printSymbols();
+
+    std::cout << "x = " << std::any_cast<int>(env.getSymbol("x")) << std::endl;
+    std::cout << "y = " << std::any_cast<int>(env.getSymbol("y")) << std::endl;
+    std::cout << "z = " << std::any_cast<int>(env.getSymbol("z")) << std::endl;
+
+    return 0;
+}
 
 
 
