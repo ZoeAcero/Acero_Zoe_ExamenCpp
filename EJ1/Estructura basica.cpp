@@ -4,6 +4,7 @@
 #include <iostream>
 #include <variant>
 #include <stdexcept>
+#include <functional>
 
 class Environment {
 public:
@@ -90,5 +91,11 @@ int main() {
     return 0;
 }
 
-
+// para mejorar el codigo como se pide en el ejercicio 8, se puede incluir #include <functional> y cambiar el tipo de dato de la variable symbols a std::map<std::string, std::function<std::variant<int, double, std::string>()>> symbols;
+// En el metodo insert se puede cambiar por symbols.emplace(name, value); y en el metodo find se puede cambiar por return it->second();
+// En el metodo print se puede cambiar por std::cout << name << " = " << value() << '\n';
+// En el metodo exists se puede cambiar por return symbols.find(name) != symbols.end();
+// En el metodo remove se puede cambiar por symbols.erase(name); y en el metodo main se puede cambiar por env.insert("score", [] { return 100; }); env.insert("name", [] { return "Ruben"; }); env.insert("pi", [] { return 3.1416; });
+// En el metodo main se puede cambiar por std::cout << "score = " << env.find("score") << '\n'; std::cout << "name = " << env.find("name") << '\n'; std::cout << "pi = " << env.find("pi") << '\n';
+// En el metodo main se puede cambiar por std::cout << "score = " << env.exists("score") << '\n'; std::cout << "name = " << env.exists("name") << '\n'; std::cout << "pi = " << env.exists("pi") << '\n';
 
