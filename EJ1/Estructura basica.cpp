@@ -20,14 +20,14 @@ public:
     //buscar simbolo en el entorno
     std::variant<int, double, std::string> find(const std::string& name) const {
         auto it = symbols.find(name);
-        if (it == symbols.end()) {
+        if (it != symbols.end()) {
             throw std::invalid_argument("Símbolo no encontrado: " + name);
         }
         return it->second;
     }
     else {
         throw std::invalid_argument("Símbolo no encontrado: " + name);
-    }
+    };
 
 
 //verificar si el simbolo existe en el entorno
