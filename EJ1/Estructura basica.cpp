@@ -51,5 +51,19 @@ private:
     std::map<std::string, std::variant<int, double, std::string>> symbols;
 };
 
+int main() {
+    try {
+        //crear instancia en clase Environment
+        Environment env;
+
+        //insertar simbolos con el metodo insert
+        env.insert("score", 100);
+        env.insert("name", "Ruben");
+        env.insert("pi", 3.1416);
+
+       
+    }
+}
+
 
 
