@@ -2,6 +2,8 @@
 
 https://github.com/ZoeAcero/Acero_Zoe_ExamenCpp.git
 
+He usado de ayuda Chatgpt
+
 En el archivo llamado EJ1 se encuentra un codigo el cual partiendo de una esctructura basica de la clase enviroment se ha ido mejorando para que este:
 1. inserte y busque simbolos
 2. Haga una gestion de errores
