@@ -3,6 +3,7 @@
 #include <any>
 #include <iostream>
 #include <variant>
+#include <stdexcept>
 
 class Environment {
 public:
@@ -21,13 +22,11 @@ public:
     std::variant<int, double, std::string> find(const std::string& name) const {
         auto it = symbols.find(name);
         if (it != symbols.end()) {
+            return it->second;
+        } else {
             throw std::invalid_argument("Símbolo no encontrado: " + name);
         }
-        return it->second;
     }
-    else {
-        throw std::invalid_argument("Símbolo no encontrado: " + name);
-    };
 
 
 //verificar si el simbolo existe en el entorno
