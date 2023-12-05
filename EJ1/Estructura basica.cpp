@@ -20,6 +20,14 @@ bool hasSymbol(const std::string& name) const {
     }
 
     //obtenemos el valor del simbolo
-    
+    std::any getSymbol(const std::string& name) const {
+        auto it = symbols.find(name);
+        if (it != symbols.end()) {
+            return it->second;
+        } else {
+            // Devolver algo por defecto si el símbolo no está presente
+            return std::any(); 
+        }
+    }
 
 
