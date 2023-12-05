@@ -42,5 +42,9 @@ bool hasSymbol(const std::string& name) const {
         }
     }
 
+private:
+    std::map<std::string, std::any> symbols;
+};
+
 
 
