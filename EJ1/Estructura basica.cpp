@@ -61,8 +61,29 @@ int main() {
         env.insert("name", "Ruben");
         env.insert("pi", 3.1416);
 
-       
+       //imprimir simbolos en la tabla
+        env.print();
+
+        //buscar simbolo en la tabla
+        std::cout << "score = " << env.find("score") << '\n';
+        std::cout << "name = " << env.find("name") << '\n';
+        std::cout << "pi = " << env.find("pi") << '\n';
+
+        //eliminar simbolo de la tabla
+        env.remove("score");
+        env.print();
+
+        //verificar si el simbolo existe en la tabla
+        std::cout << "score = " << env.exists("score") << '\n';
+        std::cout << "name = " << env.exists("name") << '\n';
+        std::cout << "pi = " << env.exists("pi") << '\n';
     }
+
+    catch (const std::exception& ex) {
+        std::cerr << ex.what() << '\n';
+    }
+
+    return 0;
 }
 
 
