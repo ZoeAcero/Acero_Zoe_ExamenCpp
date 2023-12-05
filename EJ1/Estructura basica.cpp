@@ -29,6 +29,23 @@ public:
     }
 }
 
+//verificar si el simbolo existe en el entorno
+bool exists(const std::string& name) const {
+    return symbols.find(name) != symbols.end();
+}
+
+//eliminar un simbolo del entorno
+void remove(const std::string& name) {
+    symbols.erase(name);
+}
+
+//imprimir el entorno
+void print() const {
+    for (const auto& [name, value] : symbols) {
+        std::cout << name << " = " << value << '\n';
+    }
+}
+
 
 
 
