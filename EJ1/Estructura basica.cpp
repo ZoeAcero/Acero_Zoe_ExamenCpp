@@ -41,6 +41,11 @@ bool hasSymbol(const std::string& name) const {
         }
     }
 
+    bool insert(const std::string& name, const std::any& value) {
+        auto result = symbols.emplace(name, value);
+        return result.second;  // devuelve true si se agrego correctamente
+    }
+
 private:
     std::map<std::string, std::any> symbols;
 };
@@ -48,8 +53,9 @@ private:
 int main() {
     Environment env;
     env.addSymbol("x", 10);
-    env.addSymbol("y", 20);
-    env.addSymbol("z", 30);
+    env.addSymbol("message", std::string("Clase de programacion"));
+
+    bool success = env.insert("x", 100);
 
     env.printSymbols();
 
