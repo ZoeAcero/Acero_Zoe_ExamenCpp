@@ -26,8 +26,21 @@ bool hasSymbol(const std::string& name) const {
             return it->second;
         } else {
             // Devolver algo por defecto si el símbolo no está presente
-            return std::any(); 
+            return std::any();
         }
     }
+
+    //imprimir todos los simbolos
+    void printSymbols() const {
+        for (const auto& pair : symbols) {
+            std::cout << "Symbol: " << pair.first << ", Value: ";
+            try {
+                std::cout << std::any_cast<const char*>(pair.second) << std::endl;
+            } catch (const std::bad_any_cast&) {
+                std::cerr << "Type mismatch in symbol: " << pair.first << std::endl;
+            }
+        }
+    }
+
 
 
